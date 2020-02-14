@@ -18,7 +18,7 @@ class App extends Component {
     }
   };
 
-  console.log(Array.isArray(this.object.practice));
+  
 
   componentDidMount(){
     axios.get(`http://localhost:5000/api/footballers`)
@@ -27,6 +27,7 @@ class App extends Component {
       // console.table(res.data);
       this.setState({players: res.data})
       console.log(Array.isArray(this.state.players));
+      console.log(Array.isArray(this.object.practice));
     })
     .catch()
   }
