@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
+import PlayerCard from './components/PlayerCard';
 
 // C C R 
 
@@ -26,15 +27,20 @@ class App extends Component {
       // console.log(res.data);
       // console.table(res.data);
       this.setState({players: res.data})
-      console.log(Array.isArray(this.state.players));
-      console.log(Array.isArray(this.object.practice));
+      // console.log(Array.isArray(this.state.players));
+      // console.log(Array.isArray(this.object.practice));
     })
     .catch()
   }
-    render(){
+
+  render(){
      return (
     <div className="App">
       <h1>Happy building <span role="img" aria-label="Smiling emoji">😃</span></h1>
+
+      {this.state.players.map(player => (
+        <PlayerCard key={player.id} player={player}/>
+      ))}
     </div>
     ); 
   }
